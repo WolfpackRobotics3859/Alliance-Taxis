@@ -7,7 +7,6 @@ package frc.robot;
 import frc.robot.commands.ShareableAuto;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.Drivetrain;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -16,10 +15,8 @@ import edu.wpi.first.wpilibj2.command.Command;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
-public class RobotContainer {
-  
-  private SendableChooser<Command> m_Chooser;
-
+public class RobotContainer 
+{
   private final Drivetrain m_Drivetrain = new Drivetrain(TunerConstants.DrivetrainConstants, TunerConstants.FrontLeft,
                       TunerConstants.FrontRight, TunerConstants.BackLeft, TunerConstants.BackRight);
 
@@ -29,12 +26,10 @@ public class RobotContainer {
   }
 
   private void configureBindings() 
-  {
-    m_Chooser.addOption("Drive Forward", new ShareableAuto(m_Drivetrain, 0, 0));
-  }
+  {}
 
   public Command getAutonomousCommand() 
   {
-    return m_Chooser.getSelected();
+    return new ShareableAuto(m_Drivetrain, 0, 0);
   }
 }
