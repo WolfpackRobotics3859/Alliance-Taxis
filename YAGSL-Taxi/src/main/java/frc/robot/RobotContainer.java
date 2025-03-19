@@ -6,6 +6,7 @@ package frc.robot;
 
 import java.io.File;
 
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.SwerveSubsystem;
@@ -19,7 +20,7 @@ import frc.robot.subsystems.SwerveSubsystem;
 public class RobotContainer 
 {
    private final SwerveSubsystem drivetrain  = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
-                                                                                "swerve/neo"));
+                                                                                "swerve"));
 
 
   public RobotContainer() 
@@ -32,6 +33,12 @@ public class RobotContainer
 
   public Command getAutonomousCommand() 
   {
-    return new YAShareableAuto(drivetrain, null, 0, false, 0);
+    return new YAShareableAuto(
+            drivetrain,
+            new Translation2d(1.0, 0.0), // Move forward at 1 m/s
+            0.0, 
+            true,
+            1.0 
+        );  
   }
 }

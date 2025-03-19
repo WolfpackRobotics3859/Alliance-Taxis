@@ -30,6 +30,6 @@ public class RobotContainer
 
   public Command getAutonomousCommand() 
   {
-    return new ShareableAuto(m_Drivetrain, 0, 0);
+    return new ShareableAuto(m_Drivetrain, 0.5, 1.5);
   }
 }

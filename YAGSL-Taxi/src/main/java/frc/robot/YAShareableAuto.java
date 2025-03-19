@@ -48,7 +48,7 @@ public class YAShareableAuto extends Command
   @Override
   public void end(boolean interrupted) 
   {
-    drivetrain.drive(translation, rotation, fieldRelative); // Stop moving
+    drivetrain.drive(new Translation2d(0, 0), 0, fieldRelative); // Stop moving
     timer.stop();
   }
 
