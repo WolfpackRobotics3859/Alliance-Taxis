@@ -8,6 +8,7 @@ import frc.robot.commands.ShareableAuto;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -26,10 +27,12 @@ public class RobotContainer
   }
 
   private void configureBindings() 
-  {}
+  {
+    // Intentionally empty
+  }
 
   public Command getAutonomousCommand() 
   {
-    return new ShareableAuto(m_Drivetrain, 0.5, 1.5);
+    return new ShareableAuto(m_Drivetrain, -0.5, 1);
   }
 }
